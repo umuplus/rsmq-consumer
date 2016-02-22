@@ -1,0 +1,34 @@
+{
+  "version": "0.3.2",
+  "name": "rsmq-consumer",
+  "description": "Helper to build easy-to-use and cluster-enabled consumers for Redis Simple Message Queue (RSMQ)",
+  "author": {
+    "name": "Umut Aydin"
+  },
+  "keywords": [
+    "rsmq",
+    "consumer",
+    "queue",
+    "redis",
+    "cluster"
+  ],
+  "bugs": {
+    "url": "https://github.com/umuplus/rsmq-consumer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/umuplus/rsmq-consumer.git"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/umuplus/rsmq-consumer/raw/master/LICENSE"
+  },
+  "homepage": "https://github.com/umuplus/rsmq-consumer",
+  "main": "./index.js",
+  "dependencies": {
+    "check-type": "^0.4.11",
+    "nfork": "^0.5.0",
+    "rsmq": "^0.4.0"
+  },
+  "readmeFilename": "README.md"
+}
