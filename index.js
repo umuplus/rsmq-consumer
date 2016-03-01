@@ -8,8 +8,8 @@ function Consumer(rsmq, queue) {
     this.rsmq = rsmq;
     this.name = queue;
     this.delay = 0;
-    this.maxDelay = 60000;
-    this.stepDelay = 100;
+    this.maxDelay = 60000; // TODO: make parameters
+    this.stepDelay = 100; // TODO: make parameters
     this.jobs = {};
 }
 
@@ -43,7 +43,6 @@ Consumer.prototype.receiveMessage = function () {
                 self.deleteMessage(message);
             }
         } else {
-            console.log('no message', Date.now());
             self.next();
         }
     });

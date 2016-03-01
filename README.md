@@ -9,8 +9,8 @@ $ npm install rsmq-consumer
 ## usage
 
 To create an instance you should provide your own RSMQ client and name of your queue.
-If you want to delete received message after processing call *done* method without parameters. 
-Otherwise, provide a reason like done('connection failed') 
+If you want to delete received message after processing call **done** method without parameters. 
+Otherwise, provide a reason like *done('connection failed')* 
 
 ```javascript
 
@@ -25,7 +25,7 @@ $consumer.run();
 
 ```
 
-Please see push.js under example folder to see how to send jobs. 
+Please see **push.js** under **example** folder to see how to send jobs. 
 
 ## todo
 
