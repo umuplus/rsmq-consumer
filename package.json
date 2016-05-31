@@ -1,5 +1,5 @@
 {
-  "version": "0.3.3",
+  "version": "0.3.4",
   "name": "rsmq-consumer",
   "description": "Helper to build easy-to-use and cluster-enabled consumers for Redis Simple Message Queue (RSMQ)",
   "author": {
