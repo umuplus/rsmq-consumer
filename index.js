@@ -4,12 +4,11 @@ var nFork = require('nfork');
 
 function Consumer(rsmq, queue) {
     nFork.Cluster.call(this);
-    this.options.debug = true;
     this.rsmq = rsmq;
     this.name = queue;
-    this.delay = 0;
-    this.maxDelay = 60000; // TODO: make parameters
-    this.stepDelay = 100; // TODO: make parameters
+    this.options.delay = 0;
+    this.options.maxDelay = 60000;
+    this.options.stepDelay = 100;
     this.jobs = {};
 }
 
@@ -58,18 +57,18 @@ Consumer.prototype.deleteMessage = function (message) {
 Consumer.prototype.next = function (message) {
     var self = this;
     if (message && message.id) {
-        self.delay = 0;
+        self.options.delay = 0;
     } else {
-        if (self.delay < self.maxDelay) {
-            self.delay += self.stepDelay;
+        if (self.options.delay < self.options.maxDelay) {
+            self.options.delay += self.options.stepDelay;
         } else {
-            self.delay = parseInt(self.delay / 2);
+            self.options.delay = parseInt(self.options.delay / 2);
         }
     }
-    if (self.delay) {
+    if (self.options.delay) {
         setTimeout(function () {
             self.receiveMessage();
-        }, self.delay);
+        }, self.options.delay);
     } else {
         self.receiveMessage();
     }
@@ -77,7 +76,7 @@ Consumer.prototype.next = function (message) {
 
 /**
  * This method manages clustering for consumer
- * @memberof Socket
+ * @memberof Consumer
  * @method run
  */
 Consumer.prototype.run = function () {
