@@ -80,6 +80,7 @@ Consumer.prototype.next = function (message) {
  * @method run
  */
 Consumer.prototype.run = function () {
+    this.setup({keepGoing: true});
     if (nFork.is('master')) {
         this.__master(); // main process
     } else { // child processes
